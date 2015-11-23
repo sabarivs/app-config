@@ -1,0 +1,28 @@
+logging:
+  level:
+    io:
+      pivotal: DEBUG
+eureka: # <--- ADD NEW SECTION
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port:8080}
+
+---
+
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
+    metadataMap:
+      instanceId: ${vcap.application.instance_id}
+
+---
+
+spring:
+  profiles: dev
+eureka:
+  client:    
+    serviceUrl:
+      defaultZone:  service-registry-nonascetical-storm.cfapps.io/eureka/ 
