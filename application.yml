@@ -25,4 +25,4 @@ spring:
 eureka:
   client:    
     serviceUrl:
-      defaultZone:  service-registry-nonascetical-storm.cfapps.io/eureka/ 
+      defaultZone:  http://service-registry-nonascetical-storm.cfapps.io/eureka/ 
